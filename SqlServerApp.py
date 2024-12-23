@@ -14,8 +14,8 @@ db_config = {
 def home():
     return "welcomeee!"
     
-@app.route('/schedule/<int:day_id>', methods=['GET'])
-def get_schedule(day_id):
+@app.route('/schedule', methods=['GET'])
+def get_schedule():
     try:
         connection = mysql.connector.connect(**db_config)
         cursor = connection.cursor(dictionary=True)
@@ -38,7 +38,7 @@ def get_schedule(day_id):
         JOIN teachers t ON p.id_teacher = t.id_teacher
         JOIN `group` g ON p.id_group = g.id_group
         JOIN `type` ty ON p.id_type = ty.id_type
-        WHERE d.id_day = %s;
+        WHERE d.id_day = 1;
         """
         cursor.execute(query, (day_id,))
         schedule = cursor.fetchall()
