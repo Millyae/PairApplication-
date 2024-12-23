@@ -10,7 +10,10 @@ db_config = {
     'database': 'sql5751083',
 }
 
-
+@app.route('/')
+def home():
+    return "welcomeee!"
+    
 @app.route('/schedule/<int:day_id>', methods=['GET'])
 def get_schedule(day_id):
     try:
