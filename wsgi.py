@@ -1,4 +1,4 @@
-from main import app  
+from SqlServerApp import app  
 
 if name == "main":
     app.run()
